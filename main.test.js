@@ -1,4 +1,4 @@
-const { capitalize } = require('./main');
+const { capitalize, reverseString } = require('./main');
 
 describe('capitalize', () => {
     test('capitalize the first character', () => {
@@ -19,5 +19,11 @@ describe('capitalize', () => {
 
     test('does not change non-alphabetic first character', () => {
         expect(capitalize('123abc')).toBe('123abc');
+    });
+});
+
+describe('reverseString', () => {
+    test('reverse the string', () => {
+        expect(reverseString('hello')).toBe('olleh');
     });
 });
