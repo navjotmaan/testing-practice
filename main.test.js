@@ -1,4 +1,4 @@
-const { capitalize, reverseString } = require('./main');
+const { capitalize, reverseString, calculator } = require('./main');
 
 describe('capitalize', () => {
     test('capitalize the first character', () => {
@@ -25,5 +25,23 @@ describe('capitalize', () => {
 describe('reverseString', () => {
     test('reverse the string', () => {
         expect(reverseString('hello')).toBe('olleh');
+    });
+});
+
+describe('calculator', () => {
+    test('add a and b', () => {
+        expect(calculator.add(2, 3)).toBe(5);
+    });
+
+    test('subtract b from a', () => {
+        expect(calculator.subtract(2, 3)).toBe(-1);
+    });
+
+    test('divide a by b', () => {
+        expect(calculator.divide(12, 4)).toBe(3);
+    });
+
+    test('multiply a with b', () => {
+        expect(calculator.multiply(5, 7)).toBe(35);
     });
 });
