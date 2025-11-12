@@ -3,6 +3,12 @@ function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
+function reverseString(string) {
+    const arr = string.split('');
+    return arr.reverse().join('');
+}
+
 module.exports = {
-    capitalize
+    capitalize,
+    reverseString
 };
