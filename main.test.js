@@ -41,6 +41,14 @@ describe('calculator', () => {
         expect(calculator.divide(12, 4)).toBe(3);
     });
 
+    test('throws error when dividing by zero', () => {
+        expect(() => calculator.divide(5, 0)).toThrow('Cannot divide by zero');
+    });
+
+    test('throws error when inputs are not numbers', () => {
+        expect(() => calculator.divide('a', 2)).toThrow('Inputs must be numbers');
+    });
+
     test('multiply a with b', () => {
         expect(calculator.multiply(5, 7)).toBe(35);
     });
