@@ -31,8 +31,32 @@ const calculator = {
 
 }
 
+function caesarCipher(string, key) {
+    const alphabets = [
+'a', 'b', 'c', 'd', 'e', 'f', 'g',
+'h', 'i', 'j', 'k', 'l', 'm', 'n',
+'o', 'p', 'q', 'r', 's', 't', 'u',
+'v', 'w', 'x', 'y', 'z'
+];
+
+let result = '';
+
+for (let char of string) {
+    const index = alphabets.indexOf(char.toLowerCase());
+    if (index === -1) {
+        result += char;
+    } else {
+        const newIndex = (index + key) % alphabets.length;
+        const letter = alphabets[newIndex];
+        result += (char === char.toUpperCase() ? letter.toUpperCase() : letter);
+    }
+}
+return result;
+}
+
 module.exports = {
     capitalize,
     reverseString,
-    calculator
+    calculator,
+    caesarCipher
 };
