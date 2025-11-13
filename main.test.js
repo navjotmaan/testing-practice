@@ -1,4 +1,4 @@
-const { capitalize, reverseString, calculator, caesarCipher } = require('./main');
+const { capitalize, reverseString, calculator, caesarCipher, analyzeArray } = require('./main');
 
 describe('capitalize', () => {
     test('capitalize the first character', () => {
@@ -65,5 +65,24 @@ describe('caesarCipher', () => {
 
     test('non-alphabetic characters should remain same', () => {
         expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+    });
+});
+
+describe('analyzeArray', () => {
+    test('Should return an object with properties: average, min, max, length', () => {
+        expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
+            average: 4,
+            min: 1,
+            max: 8,
+            length: 6
+        });
+    });
+
+    test('Array should contain only numbers', () => {
+        expect(() => analyzeArray([1, 4, 'z', 'i', 8])).toThrow('Array should contain only numbers');
+    });
+
+    test('Input must be an array', () => {
+        expect(() => analyzeArray('1, 2, 5')).toThrow('Input must be an array');
     });
 });
