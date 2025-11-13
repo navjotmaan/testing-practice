@@ -59,9 +59,47 @@ for (let char of string) {
 return result;
 }
 
+function analyzeArray(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error('Input must be an array');
+    }
+
+    let sum = 0;
+    let min = arr[0];
+    let max = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] !== 'number') {
+            throw new Error('Array should contain only numbers');
+        }
+
+        sum += arr[i];
+
+        if (arr[i] < min) {
+            min = arr[i];
+        } 
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    const average = sum / arr.length;
+
+    const object = {
+        average: average,
+        min: min,
+        max: max,
+        length: arr.length
+    };
+
+    return object;
+
+}
+
 module.exports = {
     capitalize,
     reverseString,
     calculator,
-    caesarCipher
+    caesarCipher,
+    analyzeArray
 };
