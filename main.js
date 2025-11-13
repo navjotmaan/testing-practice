@@ -31,6 +31,17 @@ const calculator = {
 
 }
 
+function shiftChar(char, key, alphabets) {
+    const index = alphabets.indexOf(char.toLowerCase());
+    if (index === -1) {
+        return char;
+    } else {
+        const newIndex = (index + key) % alphabets.length;
+        const letter = alphabets[newIndex];
+        return (char === char.toUpperCase() ? letter.toUpperCase() : letter);
+    }
+}
+
 function caesarCipher(string, key) {
     const alphabets = [
 'a', 'b', 'c', 'd', 'e', 'f', 'g',
@@ -42,14 +53,8 @@ function caesarCipher(string, key) {
 let result = '';
 
 for (let char of string) {
-    const index = alphabets.indexOf(char.toLowerCase());
-    if (index === -1) {
-        result += char;
-    } else {
-        const newIndex = (index + key) % alphabets.length;
-        const letter = alphabets[newIndex];
-        result += (char === char.toUpperCase() ? letter.toUpperCase() : letter);
-    }
+    const letter = shiftChar(char, key, alphabets);
+    result += letter;
 }
 return result;
 }
